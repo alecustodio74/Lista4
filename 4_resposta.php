@@ -1,5 +1,5 @@
 <?php
-    //obrigada que as funções e variáveis tenham suas tipagens definiddas
+    //obriga que as funções e variáveis tenham suas tipagens definiddas
     declare(strict_types=1);
 ?>
 <!doctype html>
@@ -8,33 +8,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Alexandre Ricardo Custódio de Souza">
-    <title>Maiúsculas e minúsculas - Resposta</title>
+    <title>Palavra contida - Resposta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Maiúsculas e minúsculas</h1>
+    <h1>Verificar data válida</h1>
 
     <?php
     
-    function manipularString(string $palavra) : void {
-        echo "<p>Em maiúsculas " . strtoupper($palavra) . "</p>";
-        echo "<p>Em minúsculas " . strtolower($palavra) . "</p>";
-    }
+    function verificaData(int $mes, int $dia, int $ano) : void {
+        if (checkdate($mes,$dia,$ano)){
+            echo "Data válida: " . $dia . "/" . $mes . "/" . $ano;
+        }
+        else
+            echo "Data inválida. Favor redigitar!\n";
+        }
+        
        
-
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
             try {
-                $palavra = $_POST['palavra'];
-                manipularString($palavra);
-                
+                $dia = intval($_POST['dia']);
+                $mes = intval($_POST['mes']);
+                $ano = intval($_POST['ano']);
+                verificaData($mes, $dia, $ano);
+               
             } catch (Exception $e) {
                 echo "Erro: ".$e->getMessage();
             }
         }
         ?>
-
-        <button type="submit" class="btn btn-primary"><a href="2_upper_lower.php" style="color: white; text-decoration: none;">Voltar</a></button>
-        
+        <div class="mb-3">
+            <button type="subm it" class="btn btn-primary"><a href="4_datavalida.php" style="color: white; text-decoration: none;">Voltar</a></button>
+        </div>
         <?php
             //    echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'>Voltar</a>";
             ?>

@@ -1,4 +1,5 @@
-<?php //obrigada que as funções e variáveis tenham suas tipagens definiddas
+<?php
+    //obriga que as funções e variáveis tenham suas tipagens definiddas
     declare(strict_types=1);
 ?>
 <!doctype html>
@@ -30,11 +31,10 @@
         }
         ?>
 
-        <button type="submit" class="btn btn-primary">
-        <?php
-            echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'>Voltar</a>";
-            ?>
-        </button>
+    <button type="submit" class="btn btn-primary"><a href="1_contaletras.php" style="color: white; text-decoration: none;">Voltar</a></button>
+    <?php
+        // echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'>Voltar</a>";
+    ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
