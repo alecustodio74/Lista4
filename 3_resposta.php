@@ -24,7 +24,6 @@
         }
     }
        
-
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
             try {
                 $palavra1 = $_POST['palavra1'];

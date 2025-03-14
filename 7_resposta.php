@@ -16,18 +16,24 @@
 
     <?php
     
-    function verificaDatas(int $data1, int $data2) : void {
-       //continuar
+    function verificaDatas(DateTime $data1, DateTime $data2) : void {
+        $diferenca = $data1->diff($data2);
+        echo "Diferença de dias entre as datas: ";
+        if ($diferenca->d > 0)
+            echo $diferenca->d . " dia(s), ";
+        if ($diferenca->m > 0)
+            echo $diferenca->m . " mes(es) e ";
+        if ($diferenca->y > 0)
+            echo $diferenca->y . "ano(s).";
         }
         
        
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
             try {
-                $data1 = intval($_POST['data1']);
-                echo "Data1: " . $data1;
-                
-                
-                //verificaDatas($data1, $data2);
+                #input type="date" name="data1"/>
+                $data1 = new DateTime($_POST['data1']);
+                $data2 = new DateTime($_POST['data2']);
+                verificaDatas($data1, $data2);
                
             } catch (Exception $e) {
                 echo "Erro: ".$e->getMessage();
@@ -35,7 +41,7 @@
         }
         ?>
         <div class="mb-3">
-            <button type="subm it" class="btn btn-primary"><a href="4_datavalida.php" style="color: white; text-decoration: none;">Voltar</a></button>
+            <button type="subm it" class="btn btn-primary"><a href="7_datas.php" style="color: white; text-decoration: none;">Voltar</a></button>
         </div>
         <?php
             //    echo "<a href='" . $_SERVER['HTTP_REFERER'] . "'>Voltar</a>";
